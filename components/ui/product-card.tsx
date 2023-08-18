@@ -1,5 +1,4 @@
 "use client";
-
 import { Product } from "@/types";
 import Image from "next/image";
 import IconButton from "@/components/ui/icon-button";

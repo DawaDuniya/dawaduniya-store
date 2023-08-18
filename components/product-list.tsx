@@ -4,7 +4,7 @@ import ProductCard from "./ui/product-card";
 
 interface ProductListProps{
     title: string;
-    items:Product[];
+    items: Product[];
 
 }
 
@@ -17,8 +17,8 @@ const ProductList:React.FC<ProductListProps> = ({
             <h3 className="font-bold text-3xl">{title}</h3>
             {items.length === 0&& <NoResults/>}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 lg:grid-cols-4 xl:grid-cols-5">
-                {items.map((item)=>(
-                    <ProductCard key={item.id } data={item} />
+                {items.map((product)=>(
+                    <ProductCard key={product.id } data={product} />
                 ))}
             </div>
         </div>

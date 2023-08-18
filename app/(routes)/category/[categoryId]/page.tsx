@@ -6,11 +6,14 @@ import NoResults from "@/components/ui/no-results";
 import ProductCard from "@/components/ui/product-card";
 import React from "react";
 
+
 interface CategoryPageProps {
   params: {
     categoryId: string;
   };
 }
+
+const revalidate = 0;
 const CategoryPage: React.FC<CategoryPageProps> = async ({ params }) => {
   const products = await getProducts({
     categoryId: params.categoryId,

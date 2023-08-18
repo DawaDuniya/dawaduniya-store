@@ -22,11 +22,6 @@ const CategoryPage:React.FC<CategoryPageProps> = async({params}) => {
                 <Billboard data={category.billboard}/>
                 <div className="px-4 sm:px-4 lg:px-8 pb-24">
                     <div className="lg:grid lg:grid-cols-5 lg:gap-x-8">
-                        {/* <div className="hidden lg:block">
-                           <Filter
-                                valueKey="name"
-                           /> 
-                        </div> */}
                         <div className="mt-6 lg:col-span-5 lg:mt-0">
                             {products.length ===0 && <NoResults/>}
                             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">

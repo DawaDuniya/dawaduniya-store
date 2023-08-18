@@ -19,7 +19,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push(`/product/${data.id}`);
+    router.push(`/product/${data?.id}`);
   };
 
   const onPreview: MouseEventHandler<HTMLButtonElement> = (event) => {
@@ -34,7 +34,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
 
   return (
     <div
-      onClick={handleClick}
+    onClick={handleClick}
       className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4 "
     >
       <div className="aspect-square rounded-xl bg-gray-100 relative ">

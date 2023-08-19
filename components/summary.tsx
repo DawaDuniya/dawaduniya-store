@@ -15,7 +15,6 @@ const Summary = () => {
 
   const [loading, setLoading] = useState(false);
   useEffect(() => {
-    setLoading(true);
     if (searchParams.get("success")) {
       toast.success("Payment completed.");
       removeAll();
@@ -31,19 +30,22 @@ const Summary = () => {
   }, 0);
 
   const onCheckout = async () => {
-   try {
-    const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
-      {
-        productIds: items.map((item) => item.id),
-        productQuantity:items.reduce((total, item) => total + item.quantity, 0)
-      }
+    try {
+      setLoading(true);
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
+        {
+          productIds: items.map((item) => item.id),
+          productQuantity: items.reduce(
+            (total, item) => total + item.quantity,
+            0
+          ),
+        }
       );
       window.location = response.data.url;
-   }catch(error){
-    console.error(error)
-   }
-
+    } catch (error) {
+      console.error(error);
+    }
   };
   return (
     <div
@@ -68,8 +70,8 @@ const Summary = () => {
           <Currency value={totalPrice} />
         </div>
       </div>
-      <Button  onClick={onCheckout} className="w-full mt-6">
-        Checkout 
+      <Button disabled={loading} onClick={onCheckout} className="w-full mt-6">
+        {loading ? <p>Loading..</p> : <p>Checkout</p>}
       </Button>
     </div>
   );

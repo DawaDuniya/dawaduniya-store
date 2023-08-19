@@ -16,7 +16,10 @@ export interface Product {
   brand: string;
   subtitle: string;
   category: Category;
-  description: string;
+  introduction: string;
+  use: string;
+  sideEffect: string;
+  direction: string;
   quantity: number;
   price: string;
   images: Image[];

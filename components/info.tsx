@@ -26,7 +26,7 @@ const Info: React.FC<InfoProps> = ({ data }) => {
       </div>
       <hr className="my-4" />
       <div className="flex flex-col gap-y-6">
-        <div className="flex items-center gap-x-4">
+        <div className="block items-center gap-x-4">
           <h3 className=" font-semibold text-black">Composition:</h3>
           <div>&nbsp;{data.subtitle}</div>
         </div>
@@ -34,10 +34,6 @@ const Info: React.FC<InfoProps> = ({ data }) => {
           <h3 className="font-semibold text-black">Brand:</h3>
           <div>&nbsp;{data.brand}</div>
         </div>
-      </div>
-      <div className="my-4 flex flex-col items-start gap-x-y">
-        <h3 className="font-semibold text-black">Description:</h3>
-        <div>{data.description}</div>
       </div>
       <div className="mt-10 flex items-center gap-x-3">
         <Button onClick={onAddToCart} className="flex items-center gap-x-2">Add to Cart

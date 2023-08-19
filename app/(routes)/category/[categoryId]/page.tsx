@@ -6,15 +6,14 @@ import Container from "@/components/ui/container";
 import NoResults from "@/components/ui/no-results";
 import ProductCard from "@/components/ui/product-card";
 
-export const revalidate = 0;
 
 interface CategoryPageProps {
   params: {
     categoryId: string;
-  },
- 
+  }
 }
 
+export const revalidate = 0;
 const CategoryPage: React.FC<CategoryPageProps> = async ({ 
   params, 
 }) => {

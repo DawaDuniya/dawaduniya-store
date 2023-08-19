@@ -1,38 +1,100 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { Category } from "@/types";
+import { Menu, UploadIcon, X } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
 
 interface MainNavProps {
-    data: Category[]
-};
-
+  data: Category[];
+}
 
 const MainNav: React.FC<MainNavProps> = ({ data }) => {
-    const pathname = usePathname();
+    const router = useRouter();
+  const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
+  const togglemenu = () => setIsOpen(!isOpen);
 
+  const gotoUpload =()=>{
+    router.push('/uploads')
+    setIsOpen(false);
+  }
 
+  const routes = data.map((route) => ({
+    href: `/category/${route.id}`,
+    label: route.name,
+    active: pathname === `/category/${route.id}`,
+  }));
 
-    const routes = data.map((route) => ({
-        href: `/category/${route.id}`,
-        label: route.name,
-        active: pathname === `/category/${route.id}`
-    }))
-    return (
-        <nav
-            className="mx-6 flex items-center space-x-4 lg:space-x-6"
-        >
+  return (
+    <>
+      <div>
+        <ul className="hidden space-x-4 md:flex">
+          {routes.map((route) => (
+            <li
+              className={cn(
+                "cursor-pointer ml-10 uppercase border-b-4 border-gray-200 hover:border-[#01b69a]",
+                route.active ? "border-[#01b69a]" : "border-gray-200"
+              )}
+              key={route.href}
+            >
+              <Link href={route.href}>{route.label}</Link>
+            </li>
+          ))}
+          <li className="flex py-1 rounded-md ml-2 px-2 items-center space-x-5 font-semibold text-white hover:opacity-75  bg-[#01b69a] ">
+            <Link
+              href="/uploads"
+              className="flex cursor-pointer items-center gap-x-2"
+            >
+              <UploadIcon size={18} />
+              Upload
+            </Link>
+          </li>
+        </ul>
+      </div>
+      <div className="cursor-pointer pl-24">
+        <Menu onClick={togglemenu} className="h-8 w-8 md:hidden text-[#01a9b6]" />
+      </div>
+      <div
+        className={cn(
+          "fixed z-40 top-0 left-0 w-[70%] sm:hidden h-screen bg-gray-100 px-10  ease-in-out duration-500",
+          isOpen ? "left-[0%]" : "left-[-100%]"
+        )}
+      >
+        <div className="flex w-full items-center justify-end">
+          <div onClick={togglemenu} className="cursor-pointer">
+            <X className="h-8 w-8 text-[#01a9b6]" />
+          </div>
+        </div>
+        <div className="flex-col py-4">
+          <ul className="">
             {routes.map((route) => (
-                <Link
-                    key={route.href}
-                    href={route.href}
-                    className={cn("text-sm font-medium transition-colors hover:text-black", route.active ? "text-black" : "text-neutral-500")}>
-                    {route.label}
-                </Link>
+              <li
+                onClick={() => setIsOpen(false)}
+                className={cn(
+                  "py-2 mb-2 rounded-md px-2 font-semibold hover:bg-white hover:decoration-[#01a9b6]",
+                  route.active ? "bg-white" : "bg-transparent"
+                )}
+                key={route.href}
+              >
+                <Link href={route.href}>{route.label}</Link>
+              </li>
             ))}
-        </nav>
-    );
-}
+            <li
+              onClick={gotoUpload}
+              className="flex py-2 rounded-md px-2 items-center space-x-5 font-semibold text-white hover:opacity-75  bg-[#01b69a] "
+            >
+              <button className="flex cursor-pointer items-center gap-x-2">
+                <UploadIcon size={18} />
+                Upload
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default MainNav;

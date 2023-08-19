@@ -15,7 +15,7 @@ return(
     className={cn(`
     w-auto
     rounded-full
-    bg-black
+    bg-[#01b69a]
     border-transparent
     px-5
     py-3

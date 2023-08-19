@@ -1,5 +1,6 @@
 import getProduct from "@/actions/get-product";
 import getProducts from "@/actions/getProducts";
+import Description from "@/components/description";
 import Gallery from "@/components/gallery";
 import Info from "@/components/info";
 import ProductList from "@/components/product-list";
@@ -20,7 +21,7 @@ const ProductPage:React.FC<ProductPageProps> = async({
     return ( 
         <div className="bg-white">
             <Container>
-                <div className="px-4 py-10 sm:px-6 lg:px-8">
+                <div className="px-4 mt-16 py-10 sm:px-6 lg:px-8">
                     <div className=" lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
                         {/* Gallery */}
                         <Gallery images={product.images}/>
@@ -29,6 +30,10 @@ const ProductPage:React.FC<ProductPageProps> = async({
                             <Info data={product} />
                         </div>
                     </div>
+                        <hr className="my-6"/>
+                        <div>
+                            <Description data={product}/>
+                        </div>
                     <hr className="my-10"/>
                     <ProductList title="Suggested Items" items={suggestedProducts}/>
                 </div>

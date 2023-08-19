@@ -1,3 +1,4 @@
+import Description from "@/components/description";
 import Currency from "@/components/ui/currency";
 import IconButton from "@/components/ui/icon-button";
 import useCart from "@/hooks/use-cart";
@@ -80,29 +81,24 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
               </div>
             </div>
           </div>
-          <div className="mt-2 flex items-center gap-x-2">
+          <div className="mt-2 md:flex block items-center gap-x-2">
             <h2 className="text-md font-semibold">Composition:</h2>
-            <p className="text-md">{data.subtitle}</p>
+            <p className="text-md w-full">{data.subtitle}</p>
           </div>
-          <div className="mt-2 flex items-center gap-x-2">
+          <div className="mt-2 md:flex block items-center gap-x-2">
             <h2 className="text-md font-semibold">Category:</h2>
-            <p className="text-md">{data.category.name}</p>
+            <p className="text-md w-full">{data.category.name}</p>
           </div>
           <div className="mt-2 flex items-center gap-x-2">
             <h2 className="text-md font-semibold">Brand Name:</h2>
             <p className="text-md">{data.brand}</p>
           </div>
-          <div className="mt-2 flex-1 gap-x-2">
-          <h2 className="text-md font-semibold">Description:</h2>
-          <p className="mt-2 ">{data.description}</p>
-          </div>
           <div className="mt-2 flex items-center gap-x-2">
-          <h2 className="text-md font-semibold">Price:</h2>
-          <Currency value={numericPrice * quantity} />
+            <h2 className="text-md font-semibold">Price:</h2>
+            <Currency value={numericPrice * quantity} />
           </div>
-
-          
         </div>
+        <Description data={data}/>
       </div>
     </li>
   );

@@ -3,11 +3,7 @@ import ImageUpload from "@/app/(routes)/uploads/components/image-upload";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
-interface PrescriptionFormProps {
-  onsave: () => void;
-}
-
-const PrescriptionForm: React.FC<PrescriptionFormProps> = () => {
+const PrescriptionForm = () => {
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [imageURL, setImageURL] = useState<string[]>([]);
@@ -19,14 +15,13 @@ const PrescriptionForm: React.FC<PrescriptionFormProps> = () => {
   const handleSubmit = async () => {
     try {
       setLoading(true);
-      const prescriptionData = {
-        name,
-        phoneNumber,
-        imageURL,
-      };
       const res = await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/prescription`,
-        prescriptionData
+        {
+          name,
+          phoneNumber,
+          imageURL,
+        },
       );
       toast.success("Prescription Uploaded Successfully");
       window.location = res.data.url;

@@ -2,7 +2,6 @@
 import { cn } from "@/lib/utils";
 import { Category } from "@/types";
 import { Menu, UploadIcon, X } from "lucide-react";
-import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -11,15 +10,15 @@ interface MainNavProps {
 }
 
 const MainNav: React.FC<MainNavProps> = ({ data }) => {
-    const router = useRouter();
+  const router = useRouter();
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const togglemenu = () => setIsOpen(!isOpen);
 
-  const gotoUpload =()=>{
-    router.push('/uploads')
+  const gotoUpload = () => {
+    router.push("/uploads");
     setIsOpen(false);
-  }
+  };
 
   const routes = data.map((route) => ({
     href: `/category/${route.id}`,
@@ -39,22 +38,25 @@ const MainNav: React.FC<MainNavProps> = ({ data }) => {
               )}
               key={route.href}
             >
-              <Link href={route.href}>{route.label}</Link>
+              <a href={route.href}>{route.label}</a>
             </li>
           ))}
           <li className="flex py-1 rounded-md ml-2 px-2 items-center space-x-5 font-semibold text-white hover:opacity-75  bg-[#01b69a] ">
-            <Link
+            <a
               href="/uploads"
               className="flex cursor-pointer items-center gap-x-2"
             >
               <UploadIcon size={18} />
               Upload
-            </Link>
+            </a>
           </li>
         </ul>
       </div>
       <div className="cursor-pointer pl-24">
-        <Menu onClick={togglemenu} className="h-8 w-8 md:hidden text-[#01a9b6]" />
+        <Menu
+          onClick={togglemenu}
+          className="h-8 w-8 md:hidden text-[#01a9b6]"
+        />
       </div>
       <div
         className={cn(
@@ -78,7 +80,7 @@ const MainNav: React.FC<MainNavProps> = ({ data }) => {
                 )}
                 key={route.href}
               >
-                <Link href={route.href}>{route.label}</Link>
+                <a href={route.href}>{route.label}</a>
               </li>
             ))}
             <li

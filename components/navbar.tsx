@@ -1,7 +1,7 @@
 import Image from "next/image";
-import MainNav from "./main-nav";
+import MainNav from "@/components/main-nav";
 import getCategories from "@/actions/getCategory";
-import NavbarActions from "./navbar-actions";
+import NavbarActions from "@/components/navbar-actions";
 
 export const revalidate = 0;
 

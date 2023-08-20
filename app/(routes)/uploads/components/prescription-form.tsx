@@ -17,13 +17,12 @@ const PrescriptionForm = () => {
     try {
       setLoading(true);
       await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/prescriptions`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/prescriptions`,
         {
           name,
           phoneNumber,
           imageURL,
-        },
-      );
+        });
       toast.success("Prescription Uploaded Successfully");
     } catch (error) {
       toast.error("Oops! Something Went Wrong");

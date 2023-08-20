@@ -7,7 +7,7 @@ interface PrescriptionFormProps {
   onsave: () => void;
 }
 
-const PrescriptionForm: React.FC<PrescriptionFormProps> = ({ onsave }) => {
+const PrescriptionForm: React.FC<PrescriptionFormProps> = () => {
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [imageURL, setImageURL] = useState<string[]>([]);
@@ -74,7 +74,7 @@ const PrescriptionForm: React.FC<PrescriptionFormProps> = ({ onsave }) => {
           Please Upload Following Image (.jpeg, .jpg, .png, .webp)
         </div>
         <button
-          type="submit"
+          type={"submit"}
           className="flex rounded-md bg-black text-white w-full my-10 justify-center items-center px-2 py-3 text-2xl"
         >
           {loading ? <p>Uploading</p> : <p>Upload</p>}

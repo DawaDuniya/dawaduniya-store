@@ -1,8 +1,6 @@
 import Image from "next/image";
-import MainNav from "@/components/main-nav";
+import MainNav from "./main-nav";
 import getCategories from "@/actions/getCategory";
-import { Menu, X } from "lucide-react";
-
 import NavbarActions from "./navbar-actions";
 
 export const revalidate = 0;

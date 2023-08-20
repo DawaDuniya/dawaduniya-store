@@ -7,7 +7,7 @@ import useCart from "@/hooks/use-cart";
 import { useRouter } from "next/navigation";
 
 
-
+export const revalidate = 0;
 const NavbarActions = () => {
   const [isMounted, setIsMounted] = useState(false);
 

@@ -1,6 +1,8 @@
 import {Billboard  as BillboardTypes} from '@/types'
 import React from 'react';
 
+
+export const revalidate = 0;
 interface BillboardProps{
     data : BillboardTypes
 }

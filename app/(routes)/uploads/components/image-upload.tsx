@@ -1,11 +1,11 @@
 "use client";
-
 import { useEffect, useState } from "react";
-// import { button } from "@/components/ui/button";
 import { ImagePlus, Trash } from "lucide-react/";
 import Image from "next/image";
 import {CldUploadWidget} from "next-cloudinary";
 
+
+export const revalidate = 0;
 interface ImageUploadProps {
   disabled?: boolean;
   onChange: (value: string) => void;

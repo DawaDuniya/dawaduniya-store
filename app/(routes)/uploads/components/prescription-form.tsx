@@ -1,10 +1,5 @@
-import cloudinaryConfig from "@/cloudinary-config";
-import { ImagePlus, Trash } from "lucide-react";
-import { CldUploadWidget } from "next-cloudinary";
-import Image from "next/image";
 import React, { useState } from "react";
-import ImageUpload from "./image-upload";
-import { url } from "inspector";
+import ImageUpload from "@/app/(routes)/uploads/components/image-upload";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 

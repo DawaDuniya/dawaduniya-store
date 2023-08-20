@@ -5,6 +5,7 @@ import { Tab } from "@headlessui/react";
 import GalleryTab from "./gallery-tab";
 import NextImage from "next/image";
 
+export const revalidate = 0;
 interface GalleryProps {
   images: Image[];
 }

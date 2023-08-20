@@ -4,6 +4,8 @@ import Modal from "./ui/modal";
 import Gallery from "./gallery";
 import Info from "./info";
 
+
+export const revalidate = 0;
 const PreviewModal=()=>{
     const previewModal = usePreviewModal();
     const product= usePreviewModal((state)=>state.data);

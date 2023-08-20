@@ -1,7 +1,10 @@
 import { Product } from "@/types";
 import NoResults from "@/components/ui/no-results";
-import ProductCard from "./ui/product-card";
+import ProductCard from "@/components/ui/product-card";
 
+
+
+export const revalidate = 0;
 interface ProductListProps{
     title: string;
     items: Product[];

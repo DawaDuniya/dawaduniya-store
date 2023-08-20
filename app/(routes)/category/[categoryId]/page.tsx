@@ -1,4 +1,3 @@
-
 import getCategory from "@/actions/get-category";
 import getProducts from "@/actions/getProducts";
 import Billboard from "@/components/billboard";

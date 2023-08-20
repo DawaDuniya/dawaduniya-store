@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import { toast } from 'react-hot-toast';
-import PrescriptionForm from './components/prescription-form';
+import PrescriptionForm from '@/app/(routes)/uploads/components/prescription-form';
 import Container from '@/components/ui/container';
 
 const Upload:React.FC=()=>{

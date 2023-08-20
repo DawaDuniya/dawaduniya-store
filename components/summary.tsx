@@ -1,13 +1,14 @@
 "use client";
 import useCart from "@/hooks/use-cart";
 
-import Button from "./ui/button";
-import Currency from "./ui/currency";
+import Button from "@/components/ui/button";
+import Currency from "@/components/ui/currency";
 import { useSearchParams } from "next/navigation";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 
+export const revalidate = 0;
 const Summary = () => {
   const searchParams = useSearchParams();
   const items = useCart((state) => state.items);

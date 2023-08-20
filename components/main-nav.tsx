@@ -5,6 +5,8 @@ import { Menu, UploadIcon, X } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
+
+export const revalidate = 0;
 interface MainNavProps {
   data: Category[];
 }

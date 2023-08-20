@@ -3,6 +3,8 @@ import React from "react";
 import {Tab} from "@headlessui/react"
 import NextImage from "next/image";
 import { cn } from "@/lib/utils";
+
+export const revalidate = 0;
 interface GalleryTabProps{
     image: Image
 }

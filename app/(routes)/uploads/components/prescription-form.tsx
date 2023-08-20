@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ImageUpload from "@/app/(routes)/uploads/components/image-upload";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import { NextResponse } from "next/server";
 
 const PrescriptionForm = () => {
   const [name, setName] = useState("");
@@ -15,7 +16,7 @@ const PrescriptionForm = () => {
   const handleSubmit = async () => {
     try {
       setLoading(true);
-      const res = await axios.post(
+      await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/api/prescription`,
         {
           name,
@@ -24,7 +25,6 @@ const PrescriptionForm = () => {
         },
       );
       toast.success("Prescription Uploaded Successfully");
-      window.location = res.data.url;
     } catch (error) {
       toast.error("Oops! Something Went Wrong");
     }

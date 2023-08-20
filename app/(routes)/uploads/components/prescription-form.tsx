@@ -41,7 +41,7 @@ const PrescriptionForm = () => {
         onSubmit={handleSubmit}
         className="flex rounded-lg shadow-lg mx-auto p-10   my-40 bg-white flex-col items-start"
       >
-        <h2 className="text-2xl font-bold">Upload Prescription</h2>
+        <h2 className="text-2xl font-bold">Upload Prescription [under Development]</h2>
         <input
           className="text-black w-full outline-none my-5 py-1 px-4 bg-gray-100 placeholder:text-gray-800"
           type="text"

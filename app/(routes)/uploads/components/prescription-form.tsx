@@ -17,7 +17,7 @@ const PrescriptionForm = () => {
     try {
       setLoading(true);
       await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/prescription`,
+        `${process.env.NEXT_PUBLIC_API_URL}/prescriptions`,
         {
           name,
           phoneNumber,

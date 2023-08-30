@@ -17,7 +17,7 @@ const MainNav: React.FC<MainNavProps> = ({ data }) => {
   const togglemenu = () => setIsOpen(!isOpen);
 
   const gotoUpload = () => {
-    router.push("/uploads");
+    router.push("https://wa.me/+919354227521?text=I%20want%20to%20know%20more%20about%20healthcare%20services%20offered%20by%20DawaDuniya.%20");
     setIsOpen(false);
   };
 

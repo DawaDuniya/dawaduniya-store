@@ -12,6 +12,8 @@ interface InfoProps {
 }
 const Info: React.FC<InfoProps> = ({ data }) => {
  const cart = useCart();
+ const discount = Number(data.price)*data.discount/100;
+ const discountPrice = Number(data.price) - discount;
   const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event)=>{
     event.stopPropagation();
     cart.addItem(data)
@@ -20,8 +22,9 @@ const Info: React.FC<InfoProps> = ({ data }) => {
     <div>
       <h1 className="text-3xl font-bold text-gray-900">{data.name}</h1>
       <div className="mt-3 flext items-end justify-between">
-        <p className="text-2xl text-gray-900">
-          <Currency value={data?.price} />
+        <p className="text-2xl space-x-4 text-gray-900">
+          <span className="text-destructive line-through"><Currency value={data?.price}/></span>
+          <Currency value={discountPrice} />
         </p>
       </div>
       <hr className="my-4" />

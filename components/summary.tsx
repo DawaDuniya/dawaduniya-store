@@ -31,7 +31,9 @@ const Summary = () => {
   
   
   const totalCartPrice = items.reduce((total, item) => {
-    let iprice = item.quantity * Number(item.price);
+    const discount = Number(item.price)*item.discount/100;
+    const discountPrice = Number(item.price) - discount;
+    let iprice = item.quantity * discountPrice;
     return total + iprice;
   }, 0);
   

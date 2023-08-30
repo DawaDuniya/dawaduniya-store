@@ -13,7 +13,8 @@ interface CartItemProps {
 const CartItem: React.FC<CartItemProps> = ({ data }) => {
   const cart = useCart();
   const [quantity, setQuantity] = useState(data.quantity);
-
+  const discount = Number(data.price)*data.discount/100;
+  const discountPrice = Number(data.price) - discount;
   const onIncrease = () => {
     setQuantity(quantity + 1);
     cart.addItem(data);
@@ -94,7 +95,8 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
           </div>
           <div className="mt-2 flex items-center gap-x-2">
             <h2 className="text-md font-semibold">Price:</h2>
-            <Currency value={numericPrice * quantity} />
+            <span className=" text-destructive line-through"><Currency value={numericPrice * quantity} /></span>
+            <Currency value={discountPrice * quantity} />
           </div>
         </div>
       </div>

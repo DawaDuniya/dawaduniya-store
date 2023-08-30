@@ -22,6 +22,7 @@ export interface Product {
   direction: string;
   quantity: number;
   price: string;
+  discount: number;
   images: Image[];
   isFeatured: boolean;
 }

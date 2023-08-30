@@ -16,12 +16,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
   const cart = useCart();
   const previewModal = usePreviewModal();
   const router = useRouter();
-
+  const discount = data.discount * Number(data.price)/100;
+  const discountPrice = Number(data.price)-discount; 
   const handleClick = () => {
     router.push(`/product/${data?.id}`);
     router.refresh();
   };
 
+  
   const onPreview: MouseEventHandler<HTMLButtonElement> = (event) => {
     event.stopPropagation();
     previewModal.onOpen(data);
@@ -62,8 +64,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
         <p className="font-semibold text-lg">{data.name}</p>
         <p className="text-sm text-gray-500">{data.category.name}</p>
       </div>
+      <div className="flex items-center space-x-4 justify-center">
+        <span className=" text-destructive line-through "><Currency value={data?.price} /></span>
+        <Currency value={discountPrice} />
+      </div>
       <div className="flex items-center justify-center">
-        <Currency value={data?.price} />
+        
       </div>
     </div>
   );

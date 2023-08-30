@@ -1,4 +1,3 @@
-import Description from "@/components/description";
 import Currency from "@/components/ui/currency";
 import IconButton from "@/components/ui/icon-button";
 import useCart from "@/hooks/use-cart";
@@ -42,7 +41,7 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
   }
 
   return (
-    <li className="flex py-6 border-b">
+    <li className="flex py-6 border-b rounded-md bg-white my-6 px-8  shadow-md">
       <div className="relative h-24 w-24 rounded-md overflow-hidden sm:h-48 sm:w-48">
         <Image
           fill
@@ -98,7 +97,6 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
             <Currency value={numericPrice * quantity} />
           </div>
         </div>
-        <Description data={data}/>
       </div>
     </li>
   );

@@ -21,6 +21,7 @@ const Navbar = async () => {
             />
           </a>
           <div className="flex space-x-4 items-center">
+            
             <MainNav data={categories} />          
             <NavbarActions/>
           </div>

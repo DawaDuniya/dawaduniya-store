@@ -4,6 +4,7 @@ import Billboard from "@/components/billboard";
 import Container from "@/components/ui/container";
 import NoResults from "@/components/ui/no-results";
 import ProductCard from "@/components/ui/product-card";
+import { ArrowBigLeft, ArrowBigRightDashIcon, ArrowLeftSquare, ArrowRight, ArrowRightSquare, MoveRight } from "lucide-react";
 
 
 interface CategoryPageProps {
@@ -24,6 +25,9 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
   return (
     <div className="bg-white">
       <Container>
+        <div className="mt-16 bg-[#36990b] px-4 py-1 items-center text-white font-bold text-xl">
+          <ArrowRightSquare className="inline"/> <span>{category.name}</span>
+        </div>
         <Billboard 
           data={category.billboard}
         />

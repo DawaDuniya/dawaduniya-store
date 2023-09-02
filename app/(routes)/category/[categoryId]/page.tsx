@@ -33,7 +33,7 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
         />
         <div className="px-4 sm:px-6 lg:px-8 pb-24">
           <div className="lg:grid lg:grid-cols-5 lg:gap-x-8">
-            <div className="mt-6 lg:col-span-3 lg:mt-0">
+            <div className="mt-6 lg:col-span-12 lg:mt-0">
               {products.length === 0 && <NoResults />}
               <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-4">
                 {products.map((item) => (
